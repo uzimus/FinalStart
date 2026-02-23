@@ -142,7 +142,7 @@
 
     <section class="page-hero">
         <div class="container">
-            <h1>Ia Legătura Cu Noi</h1>
+            <h1>Ia legătura cu noi</h1>
             <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto;">Ne-ar face plăcere să auzim de la tine! Fie că ai întrebări, vrei să devii voluntar sau să explorezi parteneriate.</p>
         </div>
     </section>
@@ -151,27 +151,29 @@
         <div class="container">
             <div class="contact-container">
                 <div class="contact-form">
-                    <h2 style="margin-bottom: var(--spacing-md); color: var(--primary-teal);">Trimite-ne un Mesaj</h2>
+                    <h2 style="margin-bottom: var(--spacing-md); color: var(--primary-teal);">Trimite-ne un mesaj</h2>
                     
-                    <form id="contactForm">
+                    <form id="contactForm" action="https://formspree.io/f/xeelpzqe" method="POST">
+                        <input type="hidden" name="_next" value="multumim.html">
+                        
                         <div class="form-group">
-                            <label>Nume Complet *</label>
-                            <input type="text" required placeholder="Numele tău">
+                            <label>Nume complet *</label>
+                            <input type="text" name="name" required placeholder="Numele tău">
                         </div>
                         
                         <div class="form-group">
-                            <label>Adresă Email *</label>
-                            <input type="email" required placeholder="email@exemplu.ro">
+                            <label>Adresă e-mail *</label>
+                            <input type="email" name="email" required placeholder="email@exemplu.ro">
                         </div>
                         
                         <div class="form-group">
-                            <label>Număr de Telefon</label>
-                            <input type="tel" placeholder="+40 XXX XXX XXX">
+                            <label>Număr de telefon</label>
+                            <input type="tel" name="phone" placeholder="+40 XXX XXX XXX">
                         </div>
                         
                         <div class="form-group">
                             <label>Sunt interesat(ă) de *</label>
-                            <select required>
+                            <select name="interest" required>
                                 <option value="">Te rog selectează...</option>
                                 <option value="volunteer">Voluntariat</option>
                                 <option value="donate">Donații</option>
@@ -183,7 +185,7 @@
                         
                         <div class="form-group">
                             <label>Mesaj *</label>
-                            <textarea required placeholder="Spune-ne cum te putem ajuta..."></textarea>
+                            <textarea name="message" required placeholder="Spune-ne cum te putem ajuta..."></textarea>
                         </div>
                         
                         <button type="submit" class="btn btn-primary btn-large" style="width: 100%;">
@@ -312,16 +314,10 @@
     </footer>
 
     <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-        
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Mulțumim pentru mesaj! Vom reveni în curând. (Într-un site real, mesajul ar fi trimis către echipă.)');
-            this.reset();
-        });
-    </script>
+    function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('active');
+    }
+</script>
 </body>
 </html>
