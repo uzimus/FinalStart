@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programe - Start Today</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, rgba(82, 183, 136, 0.95), rgba(109, 182, 180, 0.95)),
+                        url('https://images.unsplash.com/photo-1529472119196-cb724127a98e?w=1600') center/cover;
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .page-hero h1 { color: var(--white); }
+        
+        .program-detail {
+            padding: var(--spacing-xl) 0;
+            scroll-margin-top: 80px;
+        }
+        
+        .program-detail:nth-child(even) { background: var(--white); }
+        .program-detail:nth-child(odd) { background: var(--off-white); }
+        
+        .program-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+        
+        .program-detail:nth-child(even) .program-content {
+            direction: rtl;
+        }
+        
+        .program-detail:nth-child(even) .program-text {
+            direction: ltr;
+        }
+        
+        .program-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .program-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .program-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .features-list {
+            list-style: none;
+            margin: var(--spacing-md) 0;
+        }
+        
+        .features-list li {
+            padding: var(--spacing-xs) 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--dark-gray);
+        }
+        
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-green);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .program-content,
+            .program-detail:nth-child(even) .program-content {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+            .program-image {
+                order: -1;
+            }
+            .program-image img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Start Today Logo" style="height: 45px; margin-right: 8px; vertical-align: middle;">
+                <span style="vertical-align: middle;">Start Today</span>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="despre.html">Despre Noi</a></li>
+                <li><a href="programe.html" class="active">Programe</a></li>
+                <li><a href="echipa.html">Echipa</a></li>
+                <li><a href="doneaza.html">Donează</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Programele Noastre</h1>
+            <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto;">Acțiuni concrete pentru bunăstarea animalelor din București</p>
+        </div>
+    </section>
+
+    <section class="program-detail" id="sterilizare">
+        <div class="container">
+            <div class="program-content">
+                <div class="program-text">
+                    <span class="program-badge" style="background: linear-gradient(135deg, var(--primary-teal), var(--primary-turquoise)); color: var(--white);">Campanii de Sterilizare</span>
+                    <h2>Sterilizare pentru Câini și Pisici</h2>
+                    <p>Organizăm campanii regulate de sterilizare pentru a controla în mod uman populația de animale și a preveni suferința. Acestea sunt esențiale pentru reducerea numărului de animale fără stăpân și pentru îmbunătățirea calității vieții lor.</p>
+                    
+                    <p>Oferim servicii de sterilizare gratuite sau la prețuri accesibile pentru familiile cu venituri mici, asigurându-ne că toți cei care vor să fie responsabili față de animalele lor pot avea acces la aceste servicii.</p>
+                    
+                    <ul class="features-list">
+                        <li>Campanii mobile în cartiere și comunități</li>
+                        <li>Sterilizare gratuită pentru animale fără stăpân</li>
+                        <li>Reduceri pentru familii cu venituri reduse</li>
+                        <li>Îngrijire post-operatorie completă</li>
+                        <li>Consultații veterinare incluse</li>
+                        <li>Coordonare cu autoritățile locale</li>
+                    </ul>
+                    
+                    <a href="doneaza.html" class="btn btn-primary">Susține Campaniile</a>
+                </div>
+                <div class="program-image">
+                    <img src="https://images.unsplash.com/photo-1548681528-6a5c45b66b42?w=800" alt="Câine la veterinar">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="program-detail" id="educatie">
+        <div class="container">
+            <div class="program-content">
+                <div class="program-text">
+                    <span class="program-badge" style="background: linear-gradient(135deg, var(--primary-light-green), var(--primary-mint)); color: var(--white);">Educație și Advocacy</span>
+                    <h2>Educație și Advocacy pentru Animale</h2>
+                    <p>Educația este cheia schimbării pe termen lung. Lucrăm pentru a informa și educa comunitatea despre importanța sterilizării, îngrijirii responsabile a animalelor și bunăstării acestora.</p>
+                    
+                    <p>De asemenea, colaborăm activ cu autoritățile locale pentru îmbunătățirea politicilor de protecție a animalelor și pentru crearea unui mediu mai prietenos pentru animale în București.</p>
+                    
+                    <ul class="features-list">
+                        <li>Sesiuni de informare în comunitate</li>
+                        <li>Materiale educaționale și broșuri</li>
+                        <li>Prezentări în școli și instituții</li>
+                        <li>Campanii de conștientizare online</li>
+                        <li>Dialog cu autoritățile locale</li>
+                        <li>Advocatorie pentru politici mai bune</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="btn btn-primary">Invită-ne să Prezentăm</a>
+                </div>
+                <div class="program-image">
+                    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800" alt="Educație despre animale">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: linear-gradient(135deg, var(--primary-green), var(--primary-teal)); color: var(--white); padding: var(--spacing-xl) 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: var(--white);" class="section-title">Impactul Nostru</h2>
+            </div>
+            
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.2rem; margin-bottom: var(--spacing-lg);">Prin campaniile de sterilizare și programele educaționale, creăm o schimbare reală și durabilă în comunitatea noastră.</p>
+                
+                <a href="doneaza.html" class="btn btn-large" style="background: var(--white); color: var(--primary-teal);">Ajută-ne să Ajutăm Mai Multe Animale</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Start Today (Începe Azi)</h3>
+                    <p>Organizație non-profit dedicată bunăstării animalelor prin campanii de sterilizare și educație în București.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook">📘</a>
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="Email">📧</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Link-uri Rapide</h3>
+                    <ul>
+                        <li><a href="despre.html">Despre Noi</a></li>
+                        <li><a href="programe.html">Programele Noastre</a></li>
+                        <li><a href="echipa.html">Echipa Noastră</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Implică-te</h3>
+                    <ul>
+                        <li><a href="doneaza.html">Fă o Donație</a></li>
+                        <li><a href="contact.html">Voluntariat</a></li>
+                        <li><a href="contact.html">Parteneriate</a></li>
+                        <li><a href="contact.html">Newsletter</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>📧 [Adresa de email]</li>
+                        <li>📱 [Număr de telefon]</li>
+                        <li>📍 București, România</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Start Today (Începe Azi). Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

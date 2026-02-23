@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Today (Începe Azi) - Fă primul pas</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Home Page Specific Styles */
+        .hero {
+            background: linear-gradient(135deg, rgba(64, 145, 108, 0.3), rgba(109, 182, 180, 0.4)),
+                        url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1600') center/cover;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(82, 183, 136, 0.1) 0%, 
+                rgba(109, 182, 180, 0.15) 50%, 
+                rgba(64, 145, 108, 0.1) 100%);
+            animation: gradientShift 8s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            padding: var(--spacing-md);
+        }
+        
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+        }
+        
+        /* Mission Section */
+        .mission {
+            background: var(--white);
+        }
+        
+        .mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+        
+        .mission-text h2 {
+            color: var(--primary-teal);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .mission-text p {
+            color: var(--medium-gray);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .mission-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .mission-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Impact Stats */
+        .impact-stats {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-turquoise));
+            color: var(--white);
+            padding: var(--spacing-lg) 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            text-align: center;
+        }
+        
+        .stat {
+            padding: var(--spacing-md);
+        }
+        
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-xs);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Programs Preview */
+        .programs-preview {
+            background: var(--off-white);
+        }
+        
+        .program-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .program-card .card-icon {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-teal));
+            color: var(--white);
+        }
+        
+        .program-card.sterilization .card-icon {
+            background: linear-gradient(135deg, var(--primary-teal), var(--primary-turquoise));
+        }
+        
+        .program-card.education .card-icon {
+            background: linear-gradient(135deg, var(--primary-light-green), var(--primary-mint));
+        }
+        
+        /* Call to Action */
+        .cta {
+            background: linear-gradient(135deg, var(--primary-teal) 0%, var(--primary-green) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .cta h2 {
+            color: var(--white);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .cta p {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-md);
+            opacity: 0.95;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 70vh;
+            }
+            
+            .mission-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .mission-image {
+                order: -1;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Start Today Logo" style="height: 45px; margin-right: 8px; vertical-align: middle;">
+                <span style="vertical-align: middle;">Start Today</span>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Acasă</a></li>
+                <li><a href="despre.html">Despre Noi</a></li>
+                <li><a href="programe.html">Programe</a></li>
+                <li><a href="echipa.html">Echipa</a></li>
+                <li><a href="doneaza.html">Donează</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Fă primul pas</h1>
+            <p>Împreună construim o comunitate mai bună pentru pisicile și câinii din București prin sterilizare și educație.</p>
+            <div class="hero-buttons">
+                <a href="doneaza.html" class="btn btn-primary btn-large">Susține Cauza</a>
+                <a href="programe.html" class="btn btn-secondary btn-large">Programele Noastre</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="impact-stats">
+        <div class="container">
+            <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr); max-width: 900px; margin: 0 auto;">
+                <div class="stat">
+                    <div style="background: rgba(255, 255, 255, 0.25); padding: 2.5rem 2rem; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px);">
+                        <h3 style="font-size: 1.8rem; margin: 0; color: white; font-weight: 700;">Prevenim</h3>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div style="background: rgba(255, 255, 255, 0.25); padding: 2.5rem 2rem; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px);">
+                        <h3 style="font-size: 1.8rem; margin: 0; color: white; font-weight: 700;">Ajutăm</h3>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div style="background: rgba(255, 255, 255, 0.25); padding: 2.5rem 2rem; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px);">
+                        <h3 style="font-size: 1.8rem; margin: 0; color: white; font-weight: 700;">Educăm</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <div class="mission-content">
+                <div class="mission-text">
+                    <h2>Misiunea Noastră</h2>
+                    <p>La Start Today (Începe Azi), credem că fiecare animal merită o viață demnă și că fiecare comunitate poate deveni un loc mai bun pentru pisici și câini.</p>
+                    <p>Ne dedicăm organizării de campanii de sterilizare pentru a controla în mod uman populația de animale și pentru a preveni suferința. Ajutăm familiile cu venituri modeste să își sterilizeze animalele de companie.</p>
+                    <p>Totodată, educăm cetățenii și autoritățile locale despre importanța sterilizării și despre bunăstarea animalelor, pentru a crea o schimbare durabilă în comunitate.</p>
+                    <a href="despre.html" class="btn btn-primary">Află Mai Multe</a>
+                </div>
+                <div class="mission-image">
+                    <img src="https://images.unsplash.com/photo-1415369629372-26f2fe60c467?w=800" alt="Pisică și câine împreună">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Preview -->
+    <section class="programs-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Programele Noastre</h2>
+                <p class="section-subtitle">Acțiuni concrete pentru bunăstarea animalelor</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card program-card sterilization">
+                    <div class="card-icon">🏥</div>
+                    <h3>Campanii de Sterilizare</h3>
+                    <p>Organizăm campanii regulate de sterilizare pentru pisici și câini în zonele rurale din județul Ialomița. Oferim servicii gratuite sau la prețuri accesibile pentru familiile cu venituri reduse.</p>
+                    <p style="margin-top: var(--spacing-sm); color: var(--medium-gray); font-size: 0.95rem;">✓ Sterilizare gratuită pentru animale fără stăpân<br>✓ Reduceri pentru familii cu venituri mici</p>
+                    <a href="programe.html#sterilizare" style="color: var(--primary-teal); font-weight: 600; margin-top: var(--spacing-sm); display: inline-block;">Află mai multe →</a>
+                </div>
+                
+                <div class="card program-card education">
+                    <div class="card-icon">📚</div>
+                    <h3>Educație și Advocacy</h3>
+                    <p>Educăm comunitatea despre importanța sterilizării și bunăstarea animalelor. Colaborăm cu autoritățile locale pentru îmbunătățirea politicilor de protecție a animalelor.</p>
+                    <p style="margin-top: var(--spacing-sm); color: var(--medium-gray); font-size: 0.95rem;">✓ Sesiuni de informare publică<br>✓ Materiale educaționale<br>✓ Dialog cu autoritățile locale</p>
+                    <a href="programe.html#educatie" style="color: var(--primary-light-green); font-weight: 600; margin-top: var(--spacing-sm); display: inline-block;">Află mai multe →</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: var(--spacing-lg);">
+                <a href="programe.html" class="btn btn-primary">Vezi Toate Programele</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2>Fă Diferența Astăzi</h2>
+            <p>Susținerea ta ne ajută să salvăm mai multe animale și să educăm mai multe persoane</p>
+            <div style="display: flex; gap: var(--spacing-sm); justify-content: center; flex-wrap: wrap;">
+                <a href="doneaza.html" class="btn btn-large" style="background: var(--white); color: var(--primary-teal);">Donează Acum</a>
+                <a href="contact.html" class="btn btn-large" style="background: transparent; border: 2px solid var(--white); color: var(--white);">Implică-te</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Start Today (Începe Azi)</h3>
+                    <p>Organizație non-profit dedicată bunăstării animalelor prin campanii de sterilizare și educație în județul Ialomița.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook">📘</a>
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="Email">📧</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Link-uri Rapide</h3>
+                    <ul>
+                        <li><a href="despre.html">Despre Noi</a></li>
+                        <li><a href="programe.html">Programele Noastre</a></li>
+                        <li><a href="echipa.html">Echipa Noastră</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Implică-te</h3>
+                    <ul>
+                        <li><a href="doneaza.html">Fă o Donație</a></li>
+                        <li><a href="contact.html">Voluntariat</a></li>
+                        <li><a href="contact.html">Parteneriate</a></li>
+                        <li><a href="contact.html">Newsletter</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>📧 [Adresa de email]</li>
+                        <li>📱 [Număr de telefon]</li>
+                        <li>📍 Ialomița, România</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Start Today (Începe Azi). Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

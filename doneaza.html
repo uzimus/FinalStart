@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donează - Start Today</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, rgba(82, 183, 136, 0.95), rgba(64, 145, 108, 0.95)),
+                        url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1600') center/cover;
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .page-hero h1 { color: var(--white); }
+        
+        .donation-options { background: var(--white); }
+        
+        .amount-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: var(--spacing-sm);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .amount-btn {
+            padding: 1.5rem;
+            background: var(--off-white);
+            border: 2px solid var(--light-gray);
+            border-radius: 12px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-align: center;
+        }
+        
+        .amount-btn:hover {
+            border-color: var(--primary-teal);
+            background: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        .amount-btn.selected {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-teal));
+            color: var(--white);
+            border-color: transparent;
+        }
+        
+        .custom-amount { margin-top: var(--spacing-md); }
+        
+        .custom-amount input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-size: 1.2rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 12px;
+            font-family: var(--font-body);
+        }
+        
+        .custom-amount input:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+        }
+        
+        .donation-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .form-group { margin-bottom: var(--spacing-md); }
+        
+        .form-group label {
+            display: block;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--dark-gray);
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+        }
+        
+        .impact-cards { background: var(--off-white); }
+        
+        .impact-card {
+            background: var(--white);
+            padding: var(--spacing-md);
+            border-radius: 16px;
+            border-left: 5px solid;
+        }
+        
+        .impact-card.sterilization { border-color: var(--primary-teal); }
+        .impact-card.education { border-color: var(--primary-light-green); }
+        
+        .impact-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            font-family: var(--font-heading);
+            color: var(--primary-green);
+            margin-bottom: var(--spacing-xs);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Start Today Logo" style="height: 45px; margin-right: 8px; vertical-align: middle;">
+                <span style="vertical-align: middle;">Start Today</span>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="despre.html">Despre Noi</a></li>
+                <li><a href="programe.html">Programe</a></li>
+                <li><a href="echipa.html">Echipa</a></li>
+                <li><a href="doneaza.html" class="active">Donează</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Fă Diferența</h1>
+            <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto;">Contribuția ta ajută animalele din zonele rurale să aibă o viață mai bună</p>
+        </div>
+    </section>
+
+    <section class="impact-cards">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Unde Merg Donațiile</h2>
+                <p class="section-subtitle">100% din fonduri se duc direct către sterilizarea animalelor</p>
+            </div>
+            
+            <div style="max-width: 900px; margin: 0 auto;">
+                
+                <!-- Transparență -->
+                <div style="background: linear-gradient(135deg, var(--primary-green), var(--primary-teal)); color: white; padding: var(--spacing-lg); border-radius: 16px; margin-bottom: var(--spacing-lg); text-align: center;">
+                    <h3 style="color: white; font-size: 1.8rem; margin-bottom: var(--spacing-sm);">💚 Transparență Totală</h3>
+                    <p style="font-size: 1.2rem; margin: 0; opacity: 0.95;">Fiecare leu donat acoperă exclusiv costurile de sterilizare. Materialele educaționale, pliantele și deplasările sunt finanțate din resurse proprii ale echipei.</p>
+                </div>
+
+                <!-- Cost Sterilizări -->
+                <div class="grid grid-2">
+                    <div class="impact-card sterilization">
+                        <div class="impact-amount">150-250 RON</div>
+                        <h3>Pisici</h3>
+                        <p>O donație de 150-250 RON acoperă costul complet al sterilizării unei pisici, incluzând procedura medicală, anestezia și îngrijirea post-operatorie.</p>
+                    </div>
+                    
+                    <div class="impact-card education">
+                        <div class="impact-amount">300-400 RON</div>
+                        <h3>Câini</h3>
+                        <p>O donație de 300-400 RON acoperă sterilizarea unui câine, cu costuri variabile în funcție de talie. Fiecare sterilizare previne suferința viitorilor pui nedoriți.</p>
+                    </div>
+                </div>
+
+                <!-- Impact Note -->
+                <div style="background: var(--off-white); padding: var(--spacing-md); border-radius: 12px; margin-top: var(--spacing-lg); border-left: 4px solid var(--primary-green);">
+                    <p style="margin: 0; color: var(--dark-gray); font-size: 1.05rem;">
+                        <strong>Orice sumă contează.</strong> Donațiile mai mici se cumulează pentru a acoperi costurile complete de sterilizare. Indiferent de valoare, contribuția ta face diferența în prevenirea suferinței animalelor.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Methods -->
+    <section class="donation-options">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Cum Poți Dona</h2>
+                <p class="section-subtitle">Alege metoda care ți se potrivește</p>
+            </div>
+            
+            <div style="max-width: 700px; margin: 0 auto;">
+                
+                <!-- Redirectionare 2-3% -->
+                <div style="background: var(--white); padding: var(--spacing-lg); border-radius: 16px; box-shadow: var(--shadow-md); margin-bottom: var(--spacing-md); border-left: 5px solid var(--primary-green);">
+                    <h3 style="color: var(--primary-teal); margin-bottom: var(--spacing-sm); display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 2rem;">📄</span>
+                        Redirecționează 2-3% din Impozit
+                    </h3>
+                    <p style="color: var(--medium-gray); margin-bottom: var(--spacing-md);">
+                        Cel mai simplu mod de a ne susține - redirecționează 2-3% din impozitul pe venit fără niciun cost pentru tine!
+                    </p>
+                    <a href="https://redirectioneaza.ro/start-today/" target="_blank" class="btn btn-primary btn-large" style="width: 100%; display: block; text-align: center;">
+                        Completează Formularul 230
+                    </a>
+                </div>
+
+                <!-- Transfer Bancar -->
+                <div style="background: var(--white); padding: var(--spacing-lg); border-radius: 16px; box-shadow: var(--shadow-md); margin-bottom: var(--spacing-md); border-left: 5px solid var(--primary-teal);">
+                    <h3 style="color: var(--primary-teal); margin-bottom: var(--spacing-sm); display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 2rem;">🏦</span>
+                        Transfer Bancar
+                    </h3>
+                    <p style="color: var(--medium-gray); margin-bottom: var(--spacing-sm);">
+                        <strong>Asociația Start Today (Începe Azi)</strong>
+                    </p>
+                    <div style="background: var(--off-white); padding: var(--spacing-sm); border-radius: 8px; font-family: monospace; font-size: 1.1rem; margin-bottom: var(--spacing-sm); display: flex; justify-content: space-between; align-items: center;">
+                        <span id="iban">RO76BTRLRONCRT0673187601</span>
+                        <button onclick="copyIBAN()" style="background: var(--primary-green); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-family: var(--font-heading); font-weight: 600;">
+                            Copiază
+                        </button>
+                    </div>
+                    <p style="color: var(--medium-gray); font-size: 0.9rem; margin: 0;">
+                        💚 Donațiile sunt deductibile fiscal
+                    </p>
+                </div>
+
+                <!-- Revolut -->
+                <div style="background: var(--white); padding: var(--spacing-lg); border-radius: 16px; box-shadow: var(--shadow-md); border-left: 5px solid var(--primary-turquoise);">
+                    <h3 style="color: var(--primary-teal); margin-bottom: var(--spacing-sm); display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 2rem;">💳</span>
+                        Revolut
+                    </h3>
+                    <p style="color: var(--medium-gray); margin-bottom: var(--spacing-sm);">
+                        Donează rapid prin Revolut:
+                    </p>
+                    <div style="background: var(--off-white); padding: var(--spacing-sm); border-radius: 8px; font-family: monospace; font-size: 1.1rem; text-align: center;">
+                        <span style="color: var(--medium-gray);">@[RevTag în curând]</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function copyIBAN() {
+            const iban = document.getElementById('iban').textContent;
+            navigator.clipboard.writeText(iban).then(() => {
+                alert('IBAN copiat în clipboard! 📋');
+            });
+        }
+    </script>
+
+    <section style="background: var(--off-white);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Alte Modalități de Susținere</h2>
+            </div>
+            
+            <div class="grid grid-2">
+                <div style="padding: var(--spacing-md); text-align: center;">
+                    <div style="width: 70px; height: 70px; margin: 0 auto var(--spacing-sm); background: linear-gradient(135deg, var(--primary-green), var(--primary-teal)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--white);">🤝</div>
+                    <h3>Voluntariat</h3>
+                    <p>Oferă-ți timpul și abilitățile pentru a ajuta direct la campaniile noastre.</p>
+                    <a href="contact.html" class="btn btn-primary">Contactează-ne</a>
+                </div>
+                
+                <div style="padding: var(--spacing-md); text-align: center;">
+                    <div style="width: 70px; height: 70px; margin: 0 auto var(--spacing-sm); background: linear-gradient(135deg, var(--primary-teal), var(--primary-turquoise)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--white);">🎁</div>
+                    <h3>Donații în Natură</h3>
+                    <p>Oferă hrană, medicamente sau echipamente pentru animalele pe care le ajutăm.</p>
+                    <a href="contact.html" class="btn btn-primary">Contactează-ne</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Start Today (Începe Azi)</h3>
+                    <p>Organizație non-profit dedicată bunăstării animalelor prin campanii de sterilizare și educație în zone rurale din Ialomița.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook">📘</a>
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="Email">📧</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Link-uri Rapide</h3>
+                    <ul>
+                        <li><a href="despre.html">Despre Noi</a></li>
+                        <li><a href="programe.html">Programele Noastre</a></li>
+                        <li><a href="echipa.html">Echipa Noastră</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Implică-te</h3>
+                    <ul>
+                        <li><a href="doneaza.html">Fă o Donație</a></li>
+                        <li><a href="contact.html">Voluntariat</a></li>
+                        <li><a href="contact.html">Parteneriate</a></li>
+                        <li><a href="contact.html">Newsletter</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>📧 [Adresa de email]</li>
+                        <li>📱 [Număr de telefon]</li>
+                        <li>📍 București, România</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Start Today (Începe Azi). Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+        
+        function selectAmount(amount) {
+            document.querySelectorAll('.amount-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            event.target.classList.add('selected');
+            document.getElementById('customAmount').value = '';
+        }
+        
+        document.getElementById('customAmount').addEventListener('input', function() {
+            if (this.value) {
+                document.querySelectorAll('.amount-btn').forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+            }
+        });
+        
+        document.getElementById('donationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mulțumim pentru generozitatea ta! Într-un site real, aceasta ar procesa plata în siguranță.');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despre Noi - Start Today</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, rgba(64, 145, 108, 0.95), rgba(109, 182, 180, 0.95)),
+                        url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1600') center/cover;
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .page-hero h1 {
+            color: var(--white);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .page-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .story-section {
+            background: var(--white);
+        }
+        
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .story-content p {
+            margin-bottom: var(--spacing-md);
+            font-size: 1.15rem;
+            color: var(--dark-gray);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: var(--spacing-md);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-sm);
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-teal));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Start Today Logo" style="height: 45px; margin-right: 8px; vertical-align: middle;">
+                <span style="vertical-align: middle;">Start Today</span>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="despre.html" class="active">Despre Noi</a></li>
+                <li><a href="programe.html">Programe</a></li>
+                <li><a href="echipa.html">Echipa</a></li>
+                <li><a href="doneaza.html">Donează</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Despre Start Today</h1>
+            <p>Construim o comunitate mai bună pentru animale prin acțiune și educație</p>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Povestea Noastră</h2>
+            </div>
+            <div class="story-content">
+                <p>Start Today (Începe Azi) s-a născut din dorința de a face o diferență reală în viețile animalelor din București. Am înțeles că problema supraaglomerării adăposturilor și a suferinței animalelor fără stăpân poate fi rezolvată prin sterilizare și educație.</p>
+                
+                <p>Organizația noastră se concentrează pe două obiective principale: organizarea de campanii de sterilizare pentru câini și pisici, și educarea cetățenilor și autorităților locale despre importanța acestor acțiuni.</p>
+                
+                <p>Credem că prin colaborare și dedicare putem crea o schimbare durabilă în comunitatea noastră și putem oferi o viață mai bună animalelor din București.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: var(--off-white);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Valorile Noastre</h2>
+                <p class="section-subtitle">Principiile care ne ghidează activitatea</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Compasiune</h3>
+                    <p>Tratăm fiecare animal cu respect și demnitate, înțelegând că merită îngrijire și protecție.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">💎</div>
+                    <h3>Transparență</h3>
+                    <p>Acționăm cu integritate și responsabilitate în tot ceea ce facem.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3>Educație</h3>
+                    <p>Credem în puterea educației pentru a schimba mentalități și comportamente pe termen lung.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3>Acțiune</h3>
+                    <p>Nu doar vorbim despre probleme - acționăm concret pentru a le rezolva.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: linear-gradient(135deg, var(--primary-green), var(--primary-turquoise)); color: var(--white); text-align: center; padding: var(--spacing-xl) 0;">
+        <div class="container">
+            <h2 style="color: var(--white);">Alătură-te Misiunii Noastre</h2>
+            <p style="font-size: 1.2rem; margin-bottom: var(--spacing-md);">Împreună putem face diferența. Fiecare contribuție contează.</p>
+            <div style="display: flex; gap: var(--spacing-sm); justify-content: center; flex-wrap: wrap;">
+                <a href="doneaza.html" class="btn btn-large" style="background: var(--white); color: var(--primary-teal);">Susține Cauza</a>
+                <a href="contact.html" class="btn btn-large" style="background: transparent; border: 2px solid var(--white); color: var(--white);">Contactează-ne</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Start Today (Începe Azi)</h3>
+                    <p>Organizație non-profit dedicată bunăstării animalelor prin campanii de sterilizare și educație în București.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook">📘</a>
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="Email">📧</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Link-uri Rapide</h3>
+                    <ul>
+                        <li><a href="despre.html">Despre Noi</a></li>
+                        <li><a href="programe.html">Programele Noastre</a></li>
+                        <li><a href="echipa.html">Echipa Noastră</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Implică-te</h3>
+                    <ul>
+                        <li><a href="doneaza.html">Fă o Donație</a></li>
+                        <li><a href="contact.html">Voluntariat</a></li>
+                        <li><a href="contact.html">Parteneriate</a></li>
+                        <li><a href="contact.html">Newsletter</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>📧 [Adresa de email]</li>
+                        <li>📱 [Număr de telefon]</li>
+                        <li>📍 București, România</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Start Today (Începe Azi). Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

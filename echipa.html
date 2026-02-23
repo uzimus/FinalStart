@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echipa - Start Today</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, rgba(116, 198, 157, 0.95), rgba(109, 182, 180, 0.95)),
+                        url('https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=1600') center/cover;
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .page-hero h1 { color: var(--white); }
+        
+        .team-member {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+            text-align: center;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .team-photo {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-teal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--white);
+        }
+        
+        .team-info {
+            padding: var(--spacing-md);
+        }
+        
+        .team-info h3 {
+            color: var(--dark-gray);
+            margin-bottom: 0.3rem;
+        }
+        
+        .team-role {
+            color: var(--primary-teal);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .team-info p {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-sm);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Start Today Logo" style="height: 45px; margin-right: 8px; vertical-align: middle;">
+                <span style="vertical-align: middle;">Start Today</span>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="despre.html">Despre Noi</a></li>
+                <li><a href="programe.html">Programe</a></li>
+                <li><a href="echipa.html" class="active">Echipa</a></li>
+                <li><a href="doneaza.html">Donează</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Echipa Noastră</h1>
+            <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto;">Oameni dedicați care lucrează pentru bunăstarea animalelor</p>
+        </div>
+    </section>
+
+    <section style="background: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Conducere</h2>
+                <p class="section-subtitle">Echipa de bază a organizației</p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="team-member">
+                    <div class="team-photo">👩</div>
+                    <div class="team-info">
+                        <h3>Mihaela Gheorghe</h3>
+                        <div class="team-role">Președinte</div>
+                        <p>[Poți adăuga aici descrierea și experiența]</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo" style="background: linear-gradient(135deg, var(--primary-teal), var(--primary-turquoise));">👩</div>
+                    <div class="team-info">
+                        <h3>Ștefania Gheorghe</h3>
+                        <div class="team-role">Membru Echipă</div>
+                        <p>[Poți adăuga aici descrierea și experiența]</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo" style="background: linear-gradient(135deg, var(--primary-light-green), var(--primary-mint));">👨</div>
+                    <div class="team-info">
+                        <h3>Vlad Grigore</h3>
+                        <div class="team-role">Membru Echipă</div>
+                        <p>[Poți adăuga aici descrierea și experiența]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: var(--off-white);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Voluntarii Noștri</h2>
+                <p class="section-subtitle">Inima și sufletul organizației</p>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.15rem; color: var(--medium-gray); margin-bottom: var(--spacing-md);">Suntem susținuți de voluntari dedicați care își oferă timpul și expertiza pentru a ajuta animalele din București. Fiecare voluntar face diferența și contribuie la succesul misiunii noastre.</p>
+                
+                <div style="background: var(--white); padding: var(--spacing-lg); border-radius: 16px; margin: var(--spacing-lg) 0;">
+                    <h3 style="color: var(--primary-teal); margin-bottom: var(--spacing-sm);">Vrei să Te Alături Echipei?</h3>
+                    <p style="margin-bottom: var(--spacing-md);">Căutăm mereu persoane pasionate care doresc să facă o diferență. Indiferent dacă poți ajuta câteva ore pe lună sau vrei să te implici mai activ, ne-ar face plăcere să te cunoaștem.</p>
+                    <a href="contact.html" class="btn btn-primary">Contactează-ne</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Start Today (Începe Azi)</h3>
+                    <p>Organizație non-profit dedicată bunăstării animalelor prin campanii de sterilizare și educație în București.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook">📘</a>
+                        <a href="#" title="Instagram">📷</a>
+                        <a href="#" title="Email">📧</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Link-uri Rapide</h3>
+                    <ul>
+                        <li><a href="despre.html">Despre Noi</a></li>
+                        <li><a href="programe.html">Programele Noastre</a></li>
+                        <li><a href="echipa.html">Echipa Noastră</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Implică-te</h3>
+                    <ul>
+                        <li><a href="doneaza.html">Fă o Donație</a></li>
+                        <li><a href="contact.html">Voluntariat</a></li>
+                        <li><a href="contact.html">Parteneriate</a></li>
+                        <li><a href="contact.html">Newsletter</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>📧 [Adresa de email]</li>
+                        <li>📱 [Număr de telefon]</li>
+                        <li>📍 București, România</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Start Today (Începe Azi). Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
